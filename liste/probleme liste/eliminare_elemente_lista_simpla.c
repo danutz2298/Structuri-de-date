@@ -89,6 +89,8 @@ void stergeElementeNule(struct Node **head){
             stergeNod(head,current_node->data);
     }
 }
+
+// Functie ce afiseaza elementele listei
 void displayList(struct Node* n){
     if(n == NULL){
         printf("Lista este goala!\n");

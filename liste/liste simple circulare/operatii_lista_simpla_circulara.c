@@ -19,10 +19,14 @@ void push(struct node **head, int data){
     ptr = *head;
 
     if(*head == NULL){
-        *head = new_node;
         new_node->next = new_node;
+        *head = new_node;
     }else{
         new_node->next = *head;
+        while(ptr->next != *head){
+            ptr = ptr->next;
+        }
+        
         ptr->next = new_node;
         *head = new_node;
     }
@@ -195,20 +199,18 @@ void delete_list(struct node** head){
     return;
 }
 
+// Functie ce afiseaza elementele listei
 void display_list(struct node *head){
-    if(head == NULL){
-        printf("Lista este goala!\n");
-        exit(0);
-    }
-
     struct node *ptr;
     ptr = head;
-
-    while(ptr->next != head){
-        printf("%d ", ptr->data);
-        ptr = ptr->next;
+    if (head == NULL){
+        printf("list este goala");
     }
-    printf("%d ", ptr->data);
+    ptr = head;
+    do{
+        printf("%d ",ptr->data);
+        ptr = ptr->next;
+    }while(ptr != head);
 }
 
 int main(){
@@ -216,8 +218,8 @@ int main(){
 
     push(&head,3);
     push(&head,4);
-   
-    insert_end(&head, 6);
+   push(&head,4);
+    //insert_end(&head, 6);
    // display_list(head);
     //insert_node_before(&head);
     //display_list(head);
@@ -229,6 +231,6 @@ int main(){
     //display_list(head);
     //rmv_node(&head);
     //display_list(head);
-    delete_list(&head);
+    //delete_list(&head);
     display_list(head);
 }
