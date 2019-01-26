@@ -1,3 +1,4 @@
+// Program ce afiseaza elementele aflate in intervalul [a,b] dintr-o stiva
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -26,9 +27,7 @@ void push(struct Stack** root, int data){
     struct Stack* node = newNode(data);
     node->next = *root;
     *root = node;
-    printf("%d a fost adaugat in stiva\n", data);
 }
-
 
 // Functie ce sterge un element din stiva
 int pop(struct Stack** root){
@@ -51,6 +50,13 @@ int peek(struct Stack* root){
     return root->data;
 }
 
+void afisare(struct Stack* n){
+    while(n){
+        printf("%d ", n->data);
+        n=n->next;
+    }
+}
+
 void valori_Interval(struct Stack *n,struct Stack **newList, int a, int b){
     struct Stack *ptr;
 
@@ -68,24 +74,19 @@ void valori_Interval(struct Stack *n,struct Stack **newList, int a, int b){
     }
 }
 
-
-// Functie ce afiseaza elementele unei stive
-void afisareStiva(struct Stack* n){
-    while(n){
-        printf("%d ", n->data);
-        n=n->next;
-    }
-}
-
 int main(){
-    struct Stack *root = NULL;
-    struct Stack *newList = NULL;
-    push(&root, 10); // adauga element in stiva
+    struct Stack *root = NULL; // creeaza o stiva
+    struct Stack *new = NULL; // creeaza o stiva
+
+    // Adauga elemente in stiva
+    push(&root, 10);
     push(&root, 24);
     push(&root, 2);
-    push(&root, 80);
+    push(&root, 12);
+    push(&root, 15);
 
-    valori_Interval(root,&newList,2,40); // intervalul [2,40]
-    printf("Valorile din intervalul dat sunt:");
-    afisareStiva(newList); // afiseaza valorile din intervalul dat
+    printf("Valorile din intervalul dat sunt: ");
+    valori_Interval(root,&new,2,20);
+    afisare(new);
+    printf("\n");
 }
