@@ -79,5 +79,5 @@ void afisare(struct Stack *vf)
 int main(){
     struct Stack* root = NULL;
     initStiva(&root);
-    
+    afisare(root);
 }
