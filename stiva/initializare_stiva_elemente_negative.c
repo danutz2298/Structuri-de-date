@@ -73,7 +73,7 @@ void afisare(struct Stack *vf)
 
     for(p=vf;p;p=p->next)
         printf("%i->",p->data);
-    printf("NULL");
+    printf("NULL\n");
 }
 
 int main(){
