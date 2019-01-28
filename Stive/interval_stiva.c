@@ -87,13 +87,17 @@ int main(){
     push(&root, 2);
     push(&root, 80);
     
-    printf("Introduceti un interval [a,b] pentru afisare elementelor:\m");
+    printf("Introduceti un interval [a,b] pentru afisare elementelor:\n");
     printf("\nIntroduceti a:");
     scanf("%d",&interval_a);
     printf("\nIntroduceti b:");
     scanf("%d", &interval_b);
-    valori_Interval(root,&newList,interval_a,interval_b); // intervalul [2,40]
-    printf("Valorile din intervalul dat sunt:");
-    afisareStiva(newList); 
-    printf("\n");
+    if(interval_a <= interval_b){
+        valori_Interval(root,&newList,interval_a,interval_b); // intervalul [2,40]
+        printf("Valorile din intervalul dat sunt:");
+        afisareStiva(newList);
+        printf("\n");
+    }else{
+        printf("interval incorect!\n");
+    }
 }   
