@@ -88,9 +88,9 @@ int main(){
     push(&root, 80);
     
     printf("Introduceti un interval [a,b] pentru afisare elementelor:\m");
-    printf("Introduceti a:");
+    printf("\nIntroduceti a:");
     scanf("%d",&interval_a);
-    printf("Introduceti b:");
+    printf("\nIntroduceti b:");
     scanf("%d", &interval_b);
     valori_Interval(root,&newList,interval_a,interval_b); // intervalul [2,40]
     printf("Valorile din intervalul dat sunt:");
