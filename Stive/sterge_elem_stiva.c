@@ -33,7 +33,7 @@ void push(struct Stack** root, int data){
 void afisareStiva(struct Stack* n){
     if(n == NULL){
         printf("stiva goala");
-        return;x§
+        return;
     }
     while(n){
         printf("%d ", n->data);
