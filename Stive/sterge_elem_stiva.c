@@ -31,10 +31,28 @@ void push(struct Stack** root, int data){
 
 // Functie ce afiseaza elementele unei stive
 void afisareStiva(struct Stack* n){
+    if(n == NULL){
+        printf("stiva goala");
+        return;x§
+    }
     while(n){
         printf("%d ", n->data);
         n=n->next;
     }
+}
+
+// Functie ce sterge un element din stiva
+int pop(struct Stack** root){
+    if(isEmpty(*root)){
+        return INT_MIN;
+    }
+
+    struct Stack* temp = *root;
+    *root = (*root)->next;
+    int popped = temp->data;
+    free(temp);
+
+    return popped;
 }
 
 int main(){
@@ -45,6 +63,7 @@ int main(){
     push(&root, 24);
     push(&root, 2);
     push(&root, 80);
+       
     printf("Valorile din stiva sunt:");
     afisareStiva(root);
     printf("\n");

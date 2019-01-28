@@ -29,12 +29,11 @@ void push(struct Stack** root, int data){
     printf("%d a fost adaugat in stiva\n", data);
 }
 
-// Functie ce afiseaza elementele unei stive
-void afisareStiva(struct Stack* n){
-    while(n){
-        printf("%d ", n->data);
-        n=n->next;
-    }
+// Functie ce returneaza capul stivei
+int peek(struct Stack* root){
+    if(isEmpty(root))
+        return INT_MIN;
+    return root->data;
 }
 
 int main(){
@@ -45,7 +44,6 @@ int main(){
     push(&root, 24);
     push(&root, 2);
     push(&root, 80);
-    printf("Valorile din stiva sunt:");
-    afisareStiva(root);
+    printf("Capul stivei este %d", peek(root));
     printf("\n");
 }   
