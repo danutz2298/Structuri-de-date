@@ -111,7 +111,7 @@ void sterge_nod_ldcus(struct node **head, int value){
     }
 }
 
-void sterge_neutre(struct node** head){
+void sterge_nule(struct node** head){
     struct node *current_node;
     current_node = *head;
 
@@ -140,8 +140,8 @@ int main(){
     push_ldcus(&head,-15);
     push_ldcus(&head,0);
 
-    printf("elementele listei dupa stergere celor neutre sunt:");
-    sterge_neutre(&head);
+    printf("elementele listei dupa stergere celor nule sunt:");
+    sterge_nule(&head);
     afiseaza_ldcus(head);
     printf("\n");
 }
